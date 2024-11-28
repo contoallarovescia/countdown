@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <!-- È inutile che provi ad usare l'ispeziona -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Countdown</title>
+        <link href="style.css" rel="stylesheet" type="text/css" >
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="launch-time">
+                <div>
+                    <p id="giorni">00</p>
+                </div>
+                <div>
+                    <p>:</p>
+                </div>
+                <div>
+                    <p id="ore">00</p>
+                </div>
+                <div>
+                    <p>:</p>
+                </div>
+                <div>
+                    <p id="minuti">00</p>
+                </div>
+                <div>
+                    <p>:</p>
+                </div>
+                <div>
+                    <p id="secondi">00</p>
+                </div>
+        </div>
+        
+            </div>
+    </div>
+    <script>
+        var countDownDate = new Date("Dec 12, 2024 00:00:00").getTime();
+        var x = setInterval(function(){
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var giorni = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var ore = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minuti = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var secondi = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("giorni").innerHTML = giorni;
+            document.getElementById("ore").innerHTML = ore < 10 ? '0' + ore : ore;
+            document.getElementById("minuti").innerHTML = minuti < 10 ? '0' + minuti : minuti;
+            document.getElementById("secondi").innerHTML = secondi < 10 ? '0' + secondi : secondi;
+
+            
+        },1000)
+
+
+    </script>
+
+
+</body>
+
+
+
+    </head>
+</html>
